@@ -1052,164 +1052,137 @@ function my_custom_lang_links( $url, $slug, $locale ) {
 /**
  * One-time migration: Convert lazyblock/gatedvideo → core/embed
  */
-// add_action('init', 'ib_run_lazyblock_gatedvideo_migration_once');
-// function ib_run_lazyblock_gatedvideo_migration_once() {
-
-//     // Already run? Stop.
-//     if ( get_option('ib_lazyblock_gatedvideo_migration_done') ) {
-//         return;
-//     }
-
-//     // Only run for admins and in admin or via WP-CLI
-//     if ( ! is_admin() && ! ( defined( 'WP_CLI' ) && WP_CLI ) ) {
-//         if ( ! current_user_can( 'manage_options' ) ) {
-//             return;
-//         }
-//     }
-
-//     // Query ALL posts of ALL types
-//     $query = new WP_Query(array(
-//         'post_type'      => 'any',
-//         'post_status'    => array('publish','draft','private','pending','future'),
-//         'posts_per_page' => -1,
-//         'fields'         => 'ids',
-//         'no_found_rows'  => true,
-//     ));
-
-//     $converted_count = 0;
-//     $processed_count = 0;
-
-//     foreach ( $query->posts as $post_id ) {
-//         $processed_count++;
-
-//         $content = get_post_field('post_content', $post_id);
-
-//         if ( ! $content || empty( trim( $content ) ) ) {
-//             continue;
-//         }
-
-//         // Check if content contains the block we're looking for
-//         if ( false === strpos( $content, 'lazyblock/gatedvideo' ) ) {
-//             continue;
-//         }
-
-//         // Parse and convert blocks
-//         $blocks     = parse_blocks( $content );
-        
-//         if ( empty( $blocks ) ) {
-//             continue;
-//         }
-
-//         $new_blocks = ib_lazyblock_recursive_convert( $blocks );
-//         $new_content = serialize_blocks( $new_blocks );
-
-//         // Save only if modified
-//         if ( $new_content !== $content ) {
-//             $result = wp_update_post(array(
-//                 'ID'           => $post_id,
-//                 'post_content' => $new_content,
-//             ), true);
-
-//             if ( ! is_wp_error( $result ) ) {
-//                 $converted_count++;
-//             }
-//         }
-//     }
-
-//     // Mark migration done
-//     update_option('ib_lazyblock_gatedvideo_migration_done', 1);
-    
-//     // Log results if WP_DEBUG is enabled
-//     if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-//         error_log( sprintf( 
-//             'Lazyblock migration: Processed %d posts, converted %d posts', 
-//             $processed_count, 
-//             $converted_count 
-//         ) );
-//     }
-// }
-
-
-// /**
-//  * Recursively convert lazyblock/gatedvideo blocks into core/embed blocks.
-//  */
-// function ib_lazyblock_recursive_convert( $blocks ) {
-
-//     $new_blocks = array();
-
-//     foreach ( $blocks as $block ) {
-
-//         // Skip if block is null or invalid
-//         if ( empty( $block ) || ! is_array( $block ) ) {
-//             continue;
-//         }
-
-//         // Recursively process nested blocks FIRST (before checking block name)
-//         if ( ! empty( $block['innerBlocks'] ) && is_array( $block['innerBlocks'] ) ) {
-//             $block['innerBlocks'] = ib_lazyblock_recursive_convert( $block['innerBlocks'] );
-//         }
-
-//         // Detect Lazyblock gated video block
-//         if ( isset( $block['blockName'] ) && $block['blockName'] === 'lazyblock/gatedvideo' ) {
-
-//             // Extract video URL - try different possible attribute names
-//             $video_url = '';
-//             if ( isset( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
-//                 $video_url = $block['attrs']['video-url'] ?? 
-//                            $block['attrs']['videoUrl'] ?? 
-//                            $block['attrs']['url'] ?? 
-//                            $block['attrs']['video_url'] ?? '';
-//             }
-
-//             if ( ! empty( $video_url ) ) {
-//                 // Detect provider from URL
-//                 $provider_slug = 'video';
-//                 $provider_class = '';
-                
-//                 if ( preg_match( '/vimeo\.com/i', $video_url ) ) {
-//                     $provider_slug = 'vimeo';
-//                     $provider_class = 'is-provider-vimeo wp-block-embed-vimeo';
-//                 } elseif ( preg_match( '/youtube\.com|youtu\.be/i', $video_url ) ) {
-//                     $provider_slug = 'youtube';
-//                     $provider_class = 'is-provider-youtube wp-block-embed-youtube';
-//                 } elseif ( preg_match( '/dailymotion\.com/i', $video_url ) ) {
-//                     $provider_slug = 'dailymotion';
-//                     $provider_class = 'is-provider-dailymotion wp-block-embed-dailymotion';
-//                 }
-
-//                 // Build proper core/embed block structure matching WordPress format
-//                 $figure_classes = 'wp-block-embed is-type-video';
-//                 if ( $provider_class ) {
-//                     $figure_classes .= ' ' . $provider_class;
-//                 }
-
-//                 $embed_block = array(
-//                     'blockName'    => 'core/embed',
-//                     'attrs'        => array(
-//                         'url'             => esc_url_raw( $video_url ),
-//                         'type'            => 'video',
-//                         'providerNameSlug' => $provider_slug,
-//                     ),
-//                     'innerBlocks'  => array(),
-//                     'innerHTML'    => '<figure class="' . esc_attr( $figure_classes ) . '"><div class="wp-block-embed__wrapper">' . "\n" . esc_url( $video_url ) . "\n" . '</div></figure>',
-//                     'innerContent' => array(
-//                         '<figure class="' . esc_attr( $figure_classes ) . '"><div class="wp-block-embed__wrapper">' . "\n",
-//                         esc_url( $video_url ),
-//                         "\n" . '</div></figure>'
-//                     ),
-//                 );
-
-//                 $new_blocks[] = $embed_block;
-//                 continue; // Skip original block
-//             }
-//         }
-
-//         // Keep original block if not matched
-//         $new_blocks[] = $block;
-//     }
-
-//     return $new_blocks;
-// }
+ add_action('init', 'ib_run_lazyblock_gatedvideo_migration_once');
+ function ib_run_lazyblock_gatedvideo_migration_once() {
+     // Already run? Stop.
+     if ( get_option('ib_lazyblock_gatedvideo_migration_done') ) {
+         return;
+     }
+     // Only run for admins and in admin or via WP-CLI
+     if ( ! is_admin() && ! ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+         if ( ! current_user_can( 'manage_options' ) ) {
+             return;
+         }
+     }
+     // Query ALL posts of ALL types
+     $query = new WP_Query(array(
+         'post_type'      => 'any',
+         'post_status'    => array('publish','draft','private','pending','future'),
+         'posts_per_page' => -1,
+         'fields'         => 'ids',
+         'no_found_rows'  => true,
+     ));
+     $converted_count = 0;
+     $processed_count = 0;
+     foreach ( $query->posts as $post_id ) {
+         $processed_count++;
+         $content = get_post_field('post_content', $post_id);
+         if ( ! $content || empty( trim( $content ) ) ) {
+             continue;
+         }
+         // Check if content contains the block we're looking for
+         if ( false === strpos( $content, 'lazyblock/gatedvideo' ) ) {
+             continue;
+         }
+         // Parse and convert blocks
+         $blocks     = parse_blocks( $content );
+      
+         if ( empty( $blocks ) ) {
+             continue;
+         }
+         $new_blocks = ib_lazyblock_recursive_convert( $blocks );
+         $new_content = serialize_blocks( $new_blocks );
+         // Save only if modified
+         if ( $new_content !== $content ) {
+             $result = wp_update_post(array(
+                 'ID'           => $post_id,
+                 'post_content' => $new_content,
+             ), true);
+             if ( ! is_wp_error( $result ) ) {
+                 $converted_count++;
+             }
+         }
+     }
+     // Mark migration done
+     update_option('ib_lazyblock_gatedvideo_migration_done', 1);
+  
+     // Log results if WP_DEBUG is enabled
+     if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+         error_log( sprintf( 
+             'Lazyblock migration: Processed %d posts, converted %d posts', 
+             $processed_count, 
+             $converted_count 
+         ) );
+     }
+ }
+ /**
+  * Recursively convert lazyblock/gatedvideo blocks into core/embed blocks.
+  */
+ function ib_lazyblock_recursive_convert( $blocks ) {
+     $new_blocks = array();
+     foreach ( $blocks as $block ) {
+         // Skip if block is null or invalid
+         if ( empty( $block ) || ! is_array( $block ) ) {
+             continue;
+         }
+         // Recursively process nested blocks FIRST (before checking block name)
+         if ( ! empty( $block['innerBlocks'] ) && is_array( $block['innerBlocks'] ) ) {
+             $block['innerBlocks'] = ib_lazyblock_recursive_convert( $block['innerBlocks'] );
+         }
+         // Detect Lazyblock gated video block
+         if ( isset( $block['blockName'] ) && $block['blockName'] === 'lazyblock/gatedvideo' ) {
+             // Extract video URL - try different possible attribute names
+             $video_url = '';
+             if ( isset( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
+                 $video_url = $block['attrs']['video-url'] ?? 
+                            $block['attrs']['videoUrl'] ?? 
+                            $block['attrs']['url'] ?? 
+                            $block['attrs']['video_url'] ?? '';
+             }
+             if ( ! empty( $video_url ) ) {
+                 // Detect provider from URL
+                 $provider_slug = 'video';
+                 $provider_class = '';
+              
+                 if ( preg_match( '/vimeo\.com/i', $video_url ) ) {
+                     $provider_slug = 'vimeo';
+                     $provider_class = 'is-provider-vimeo wp-block-embed-vimeo';
+                 } elseif ( preg_match( '/youtube\.com|youtu\.be/i', $video_url ) ) {
+                     $provider_slug = 'youtube';
+                     $provider_class = 'is-provider-youtube wp-block-embed-youtube';
+                 } elseif ( preg_match( '/dailymotion\.com/i', $video_url ) ) {
+                     $provider_slug = 'dailymotion';
+                     $provider_class = 'is-provider-dailymotion wp-block-embed-dailymotion';
+                 }
+                 // Build proper core/embed block structure matching WordPress format
+                 $figure_classes = 'wp-block-embed is-type-video';
+                 if ( $provider_class ) {
+                     $figure_classes .= ' ' . $provider_class;
+                 }
+                 $embed_block = array(
+                     'blockName'    => 'core/embed',
+                     'attrs'        => array(
+                         'url'             => esc_url_raw( $video_url ),
+                         'type'            => 'video',
+                         'providerNameSlug' => $provider_slug,
+                     ),
+                     'innerBlocks'  => array(),
+                     'innerHTML'    => '<figure class="' . esc_attr( $figure_classes ) . '"><div class="wp-block-embed__wrapper">' . "\n" . esc_url( $video_url ) . "\n" . '</div></figure>',
+                     'innerContent' => array(
+                         '<figure class="' . esc_attr( $figure_classes ) . '"><div class="wp-block-embed__wrapper">' . "\n",
+                         esc_url( $video_url ),
+                         "\n" . '</div></figure>'
+                     ),
+                 );
+                 $new_blocks[] = $embed_block;
+                 continue; // Skip original block
+             }
+         }
+         // Keep original block if not matched
+         $new_blocks[] = $block;
+     }
+     return $new_blocks;
+ }
 
 function incredibuild_get_enable_divider_class() {
     $divider = get_sub_field('enable_divider');

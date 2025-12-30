@@ -5952,3 +5952,7 @@ body main .our_story-text p{
     padding: 0!important;
     background: unset!important;
   }
+
+  .single-resources_library .webinar-video-wrap {
+    display: none;
+  }
