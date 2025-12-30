@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <filter id="Vector" x="0" y="0" width="40" height="40" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#4c6d77" flood-opacity="0.549"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_176" data-name="Group 176" transform="translate(-1097.75 -1511.25)">
+    <g transform="matrix(1, 0, 0, 1, 1097.75, 1511.25)" filter="url(#Vector)">
+      <path id="Vector-2" data-name="Vector" d="M0,14A14,14,0,1,1,14,28,14,14,0,0,1,0,14Z" transform="translate(6 4)" fill="#00f99c"/>
+    </g>
+    <g id="Group" transform="translate(1112.582 1525.971)">
+      <path id="Vector-3" data-name="Vector" d="M3.279,3.279,0,0" transform="translate(0 3.279)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" stroke-dasharray="0 0"/>
+      <path id="Vector-4" data-name="Vector" d="M6.558,0,0,6.558" transform="translate(3.279)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" stroke-dasharray="0 0"/>
+    </g>
+  </g>
+</svg>

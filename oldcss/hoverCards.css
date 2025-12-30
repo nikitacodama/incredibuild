@@ -1,0 +1,20 @@
+
+.hoverCards .hoverCard {
+    flex-basis: content !important;
+        flex-grow: 1;
+    background: rgb(34, 43, 75);
+    background-image: linear-gradient(43deg, rgba(34, 43, 75, 1) 100%, rgba(44, 226, 180, 0.5018382352941176) 100%);
+    border-radius: 20px;
+    padding: 32px;
+    height: 100%;
+    box-sizing: border-box;    box-sizing: border-box;
+}
+
+.hoverCards .hoverCard:hover {
+    background: rgb(34, 43, 75);
+    background-image: linear-gradient(43deg, rgba(34, 43, 75, 1) 51%, rgba(44, 226, 180, 0.5018382352941176) 100%);
+}
+
+.hoverCards .hoverCard p{margin:0;}
+.hoverCards .hoverCard .wp-block-columns {    margin-bottom: 0;}
+

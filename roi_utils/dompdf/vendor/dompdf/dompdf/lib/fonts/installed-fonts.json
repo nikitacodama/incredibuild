@@ -1,0 +1,35 @@
+{
+    "gordita": {
+        "normal": "gordita_normal_b4163a5ecc9c54b9a451a0ff06f71edc"
+    },
+    "gordita_black": {
+        "normal": "gordita_black_normal_8157d17b14a9b4320b8dff78cb9456f6"
+    },
+    "gordita_bold": {
+        "normal": "gordita_bold_normal_4c4b8f2398e026bac0812f0386a2b060"
+    },
+    "gordita_light": {
+        "normal": "gordita_light_normal_ad847acd70345a8eb0bc74f678564200"
+    },
+    "gordita_medium": {
+        "normal": "gordita_medium_normal_4d480aac2ede5decf68a387a87f12859"
+    },
+    "gordita_thin": {
+        "normal": "gordita_thin_normal_365433caffc0e1f185b3aaa8f3cd43a5"
+    },
+    "gordita_ultra": {
+        "normal": "gordita_ultra_normal_28c92fd97aa0291a66e40f0d9f6e20bb"
+    },
+    "sevillana": {
+        "normal": "sevillana_normal_ef05b99bb11db877b1dd234bfbff8f82"
+    },
+    "poppins": {
+        "normal": "poppins_normal_a5ffd3c728ab95a97369dfd633ecb715"
+    },
+    "poppins_bold": {
+        "normal": "poppins_bold_normal_5ea4a951652e4e87d72952a5aea9a82a"
+    },
+    "poppins_medium": {
+        "normal": "poppins_medium_normal_04c5cba585537361e3b77248fa9644b0"
+    }
+}

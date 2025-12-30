@@ -1,0 +1,50 @@
+.single-our_customers section.no-padding {margin-bottom:70px;}
+.single-our_customers .attachment-post-thumbnail {margin-bottom:70px;}
+.cs-header{
+    background-image:url('/wp-content/uploads/2024/09/cs-hero-shape.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+padding-top:120px;
+padding-bottom:120px;
+}
+.darkside {  background: #171E37;     padding: 50px 40px 40px; }
+.darkside h6,.darkside p {
+  
+    color: #BFC7C9;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+}
+.darkside a {
+   
+    font-size: 18px;
+    font-weight: 500;
+    color:  var(--Primary-link-color);
+    text-decoration: none;
+}
+.darkside .taxonomy-post_tag ,.darkside .taxonomy-category {    border-bottom: 1px solid #3D3D3D;    margin-bottom: 10px;
+    padding-bottom: 10px;}
+
+
+ 
+.caseItem li {background-color:#fff;    padding: 30px;}
+.caseItem li:hover {
+    box-shadow: 0px 0px 8px 0px rgb(2, 240, 185);
+    transition: 0.2s box-shadow;
+}
+
+.caseItem li h2 a {
+    font-size: 21px;
+    line-height: 30px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000000;
+}
+.wp-block-query-pagination-numbers *,.wp-block-query-pagination-previous,.wp-block-query-pagination-next { color:  var(--Primary-link-color);text-decoration: none;}
+
+blockquote {
+    margin: 0 0 20px 0;
+}

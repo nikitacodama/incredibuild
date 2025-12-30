@@ -1,0 +1,28 @@
+<svg width="375" height="305" viewBox="0 0 375 305" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0_11909_5570)">
+<g opacity="0.66">
+<mask id="mask0_11909_5570" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="720" height="499">
+<rect width="720" height="499" transform="matrix(1 0 0 -1 0 499)" fill="url(#paint0_radial_11909_5570)"/>
+</mask>
+<g mask="url(#mask0_11909_5570)">
+<rect width="1828.61" height="1623.96" transform="matrix(1 0 0 -1 -128.011 1224.64)" fill="url(#pattern0_11909_5570)" fill-opacity="0.2"/>
+</g>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_11909_5570" cx="0" cy="0" r="1" gradientTransform="matrix(101.491 432.211 -400.699 155.751 269.476 -29.5097)" gradientUnits="userSpaceOnUse">
+<stop offset="0.212192" stop-color="#D9D9D9"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</radialGradient>
+<clipPath id="clip0_11909_5570">
+<rect width="720" height="499" fill="white" transform="matrix(1 0 0 -1 0 499)"/>
+</clipPath>
+<pattern id="pattern0_11909_5570" patternUnits="userSpaceOnUse" patternTransform="matrix(13.4635 0 0 13.4635 0 0)" preserveAspectRatio="none" viewBox="0 0 16.9097 16.9097" width="1" height="1">
+<g id="pattern0_11909_5570_inner">
+<path d="M7.547 0V5.40349" stroke="#8BA0DC" stroke-width="1.5"/>
+<path d="M7.547 9.69446V15.0979" stroke="#8BA0DC" stroke-width="1.5"/>
+<path d="M0 7.55109L5.40349 7.55109" stroke="#8BA0DC" stroke-width="1.5"/>
+<path d="M9.69446 7.55109L15.0979 7.55109" stroke="#8BA0DC" stroke-width="1.5"/>
+</g>
+</pattern></defs>
+</svg>

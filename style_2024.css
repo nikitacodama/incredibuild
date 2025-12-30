@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html{padding: 0;}    
+
+
+body {background-color:#171e37;}
+body.bright #primary-menu li.depth-0 a, body.bright #primary-menu li.depth-0 a span {
+  color: #000;
+}
+body.bright {background-image:none;}
+body.bright *{color:#171E37;}
+.button {
+
+
+  border: none;
+  outline: none;
+
+ 
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.button:before {
+  content: '';
+  background: linear-gradient(45deg, #1effae, #671fff,#0094ff,#fff);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.button:active {
+  background: #FFCC18;
+}
+
+.button:active:after {
+  background: transparent;
+}
+
+.button:hover:before {
+  opacity: 1;
+}
+.button.grey:after { background: #B4B4B4;}
+.button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #FFCC18;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+.hpHeroSection .gutters .button {max-width: 160px; margin: auto;margin: 20px 10px;} 
+
+h1{margin: 0;width:100%;color: #FFF;text-align: center;font-family: Poppins;font-size: 55px;font-style: normal;font-weight: 700;line-height: 120%; }
+h1.green{color: #1EFFAE;}
+h2 {width:100%;color: #FFF;text-align: center;font-family: Poppins;font-size: 42px;font-style: normal;font-weight: 700;line-height: 120%;}
+h3{color: #FFF;text-align: center;font-family: Poppins;font-size: 20px;font-style: normal;font-weight: 700;line-height: 30px;}
+p{color: #FFF;text-align: center;font-family: Poppins;font-size: 20px;font-style: normal;font-weight: 400;line-height: 30px;}
+
+.button{margin-left:6px ;margin-right:6px ;text-decoration: none;display: inline-flex;padding: 10px 18px;justify-content: center;align-items: center;gap: 10px;border-radius: 6px;background: #FFCC18;color: #171E37;text-align: center;font-family: Poppins;font-size: 16px;font-weight: 500;}
+.button.grey {background: #B4B4B4;}
+
+.gutters {max-width:1240px;margin:auto; display: flex; flex-wrap: wrap;justify-content: center;}
+.gutters p {margin:auto;}
+.gutters.gallerry {max-width:940px;padding-top: 60px;}
+.gutters .cards {width: 100%;padding: 0;margin: 0;list-style: none;display: flex;gap:40px;}
+.gutters .cards li {border-radius: 12px; border: 1px solid #204CE1;padding: 30px 32px 0 32px;text-align: center;box-sizing: border-box;}
+.gutters .cards li h3{color: #FFF;text-align: center;font-family: Poppins;font-size: 18px;font-style: normal;font-weight: 800;}
+.gutters .cards li p {color: #FFF;text-align: center;font-family: Poppins;font-size: 15px;font-style: normal;font-weight: 400;line-height: 23px;}
+.gutters h1{max-width: 812px;}
+.gutters p{max-width:690px;}
+.gutters.wider {max-width:812px;}
+
+
+   
+.orange {color:#000;background: #FFCC18;}
+.button {font-family: Poppins;font-size: 18px;font-style: normal;font-weight: 700;line-height: normal;border-radius: 6px;}
+
+.hero_side__by_side {background-repeat: no-repeat; background-size: cover;}
+.hero_side__by_side .block {width:100%;min-height: 600px;margin: auto; max-width:1240px;text-align: center;background-repeat: no-repeat;background-position: center;padding-top: 5%;padding-bottom:100px;box-sizing: border-box;}
+
+.block {width:100%;margin: auto; max-width:1240px;}
+.HeroContaner {display: flex;gap:50px;}
+.HeroContaner div{width:50%;text-align: left;margin: auto;}
+.HeroContaner .button23{text-align: center;}
+.HeroContaner div img{width:100%;height: auto;}
+.HeroContaner div h3{margin-top: 20px;color: #2CE2B4;text-shadow: 0px 4px 44px rgba(0, 0, 0, 0.25);font-family: Poppins;font-size: 32px;font-style: normal;font-weight: 700;line-height: 120%; /* 38.4px */}
+.HeroContaner div h1 {text-align:left;margin-bottom: 11px;margin-top: 0;text-shadow: 0px 4px 44px rgba(0, 0, 0, 0.25);font-family: Poppins;font-size: 42px;font-style: normal;font-weight: 700;line-height: 120%;}
+.HeroContaner div p{    margin-bottom: 25px;text-align: left;font-family: Poppins;font-size: 18px;font-style: normal;font-weight: 500;line-height: 26px;width: 530px;}
+
+@media screen and (max-width:1000px) {
+.hpHeroSection .gutters .button {max-width: 100%; margin: auto;margin: 20px 10px;} 
+.hpHeroSection .gutters .button {max-width: 100%;width: 100%;margin: 20px 0px;}
+}
